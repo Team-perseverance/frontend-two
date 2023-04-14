@@ -1,0 +1,37 @@
+<p class="nav">
+  <mat-toolbar color="primary">
+    <span>Patient Dashboard</span>
+    <span class="example-spacer"></span>
+    <span class="mat-mdc-button-persistent-ripple mdc-button__ripple"></span>
+    <!-- <a routerLink="/dashboard" style="text-decoration: none; color: white;"><button mat-button>DashBoard</button></a>
+    <a routerLink="/healthinfo" style="text-decoration: none; color: white;"><button mat-button>Health Info</button></a>
+     -->
+    <button (click)="navToPatientProfile()" matTooltip="View profile" mat-icon-button class="example-icon">
+      <mat-icon title="Profile" style="color: white;">person</mat-icon>
+    </button>
+    <button (click)="logout()" matTooltip="View profile" mat-icon-button class="example-icon">
+      <mat-icon title="Profile" style="color: white;">logout</mat-icon>
+    </button>
+  </mat-toolbar>
+</p>
+
+<h1 style="padding-left: 2rem;">Hi! <b>{{P_name}}</b></h1>
+
+<div style="padding-left: 2rem;">
+  <button mat-raised-button color="warn" class="example-full-width" style="float: left;" 
+  (click)="openDialog('20ms', '20ms')" >Book new appointment
+  </button>
+</div>
+<br><br>
+<!-- <div *ngIf="patientInfo.length > 0"> -->
+  <div class="hisBtn" *ngFor="let p of patientInfo">
+        <button *ngIf="patientInfo.length > 0" mat-stroked-button (click)="NavToPatHistory(p.patId)">View your history</button>  
+  </div>
+<!-- </div> -->
+<br>
+  <!-- <h3 *ngIf="patientInfo.length === 0">No previous appointments to view</h3> -->
+<!-- <app-mini-history-table></app-mini-history-table> -->
+<div style="width: 600px; display: flex; justify-content: center; margin: auto; flex-direction: column;">
+    <h2>Your appointments</h2>
+    <app-previous-appointments></app-previous-appointments>
+</div>

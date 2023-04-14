@@ -1,0 +1,26 @@
+.dot {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-grp {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card{
+  margin-bottom: 1rem;
+  width: 600px;
+}
+
+.img{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
