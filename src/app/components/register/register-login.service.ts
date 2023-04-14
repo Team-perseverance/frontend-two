@@ -8,7 +8,7 @@ import { Observable, catchError, of, throwError } from 'rxjs';
 export class RegisterLoginService {
   constructor(private http: HttpClient) {}
   Rurl = "/api/PatientInfo/AddnewPatientinfo"
-  Lurl = "https://20.120.40.217/api/PatientLogin/Get?email=srinu143.h@gmail.com&password=Srinu@456"
+  Lurl = "https://20.120.40.217/api/PatientLogin"
   // UserExists = "http://localhost:5103/apigateway/LoginGet"
 
   getUser(email : string, password : string){
