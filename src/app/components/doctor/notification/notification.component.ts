@@ -208,7 +208,7 @@ export class NotificationComponent implements OnInit {
                 this.isLoading = false
                 console.log(this.patientByAppointments)
                 this.totalPatients = this.patientByAppointments.length;
-                if(this.totalPatients <= 0){
+                if(this.patientByAppointments.length <= 0){
                   this.isLoading = false 
                 }
               })
@@ -218,6 +218,7 @@ export class NotificationComponent implements OnInit {
             })
           })
         })
+        this.isLoading = false
       })
     console.log(this.patientByAppointments);
     console.log(this.newAppPat);

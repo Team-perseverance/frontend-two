@@ -28,16 +28,18 @@ export interface medicaldata{
 export class AddhealthservService {
 
   constructor(private http:HttpClient) {}
+
+  baseapiurl: string = 'https://20.120.40.217'
   saveHealth(data:healthdata){
-    return this.http.post<healthdata>('/api/PHRecord/AddPHRecords',data)
+    return this.http.post<healthdata>(this.baseapiurl+'/api/PHRecord/AddPHRecords',data)
     .pipe(catchError(err => of('error', err)))
   }
   savetest(data:testdata){
-    return this.http.post<testdata>('/api/PTest/AddTestRecords',data)
+    return this.http.post<testdata>(this.baseapiurl+'/api/PTest/AddTestRecords',data)
     .pipe(catchError(err => of('error', err)))
   }
   savemedical(data:medicaldata){
-    return this.http.post<medicaldata>('/api/Medication/AddMedicalRecords',data)
+    return this.http.post<medicaldata>(this.baseapiurl+'/api/Medication/AddMedicalRecords',data)
     .pipe(catchError(err => of('error', err)))
   }
 }

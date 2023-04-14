@@ -102,7 +102,6 @@ export class UpdateHealthComponent {
     }
 
     
-    
     this.updateHealth.updateTest(this.appontId, this.test).subscribe((data) => {
       this.isLoading = true
       if(data == null) {
@@ -139,18 +138,21 @@ export class UpdateHealthComponent {
         doctor_Id : DID,
         date_Time: Date
       }
+      console.log(this.con)
+      
+      this.updateHealth.updateConclu(this.appontId, this.con).subscribe((data) => {
+        this.isLoading = true
+        if(data == null) {
+          console.log("Data modified");
+        }
+        else{
+          console.log("Error occured");
+        }
+        this.isLoading = false
+      })
     })
     
-    this.updateHealth.updateConclu(this.appontId, this.con).subscribe((data) => {
-      this.isLoading = true
-      if(data == null) {
-        console.log("Data modified");
-      }
-      else{
-        console.log("Error occured");
-      }
-      this.isLoading = false
-    })
+    
   }
 
   navToDashboard(){

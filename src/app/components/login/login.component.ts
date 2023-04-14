@@ -82,19 +82,21 @@ export class LoginComponent implements OnInit{
         // console.log(data)
         if(data.status == 400){
           window.alert("Email and Password doesnt match, tryagain")
-          // this.isLoading = false
+          this.isLoading = false
         }
         else if(data == 1){
           //window.alert("Account with this email already exists, please Login!")
           window.localStorage.setItem("pEmail", this.loginForm.getRawValue().email.toString())
           window.localStorage.setItem("pPassword", this.loginForm.getRawValue().password.toString())
           this.loginService.getPatientByEmail(this.loginForm.getRawValue().email).subscribe(data=>{
-            window.localStorage.setItem("patientId", String(data[0].patId))
-            window.localStorage.setItem("pName", String(data[0].fullname))
+            window.localStorage.setItem("patientId", String(data.body?.at(0)?.patId))
+            window.localStorage.setItem("pName", String(data.body?.at(0)?.fullname))
+            if(data.status == 200 || data.status === 201){
+              this.router.navigate(['/patient-dashboard'])  
+            }
           })
-          console.log(data)
+          // console.log(data)
           this.isLoading = false
-          this.router.navigate(['/patient-dashboard'])  
         }
       })
       

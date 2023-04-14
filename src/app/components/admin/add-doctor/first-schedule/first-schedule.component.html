@@ -7,9 +7,11 @@
             <br>
             <mat-form-field appearance="outline" class="email-field">
                 <mat-label>Email</mat-label>
-                <input type="email" matInput formControlName="email"  (click)="emailErrorMsg = false" placeholder="Ex. mat@gmail.com" />
+                <input type="email" matInput formControlName="email"  placeholder="Ex. mat@gmail.com" />
             </mat-form-field>
-            <span *ngIf="emailErrorMsg" style="color: red;">Email doesn't exist</span>
+            <div *ngIf="emailErrorMsg == true" style="color: red;">
+               <p *ngIf="emailErrorMsg == true"> Email doesn't exist</p>
+            </div>
         </div>
     </form>
     <br>

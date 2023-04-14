@@ -31,7 +31,7 @@ export class UpdateProfileComponent implements OnInit {
     let email = window.localStorage.getItem("pEmail")
      this.patService.getPatientByEmail(email).subscribe((data) => {
       this.isLoading = true
-        data.forEach(p=>{
+        data.body?.forEach(p=>{
           this.pat.push(p)
           this.isLoading = false
         })
@@ -54,7 +54,7 @@ export class UpdateProfileComponent implements OnInit {
     let data : updatePatient = {
       adressLine: this.updateForm.getRawValue().adressLine,
       fullname: this.updateForm.getRawValue().fullname,
-      age: Number(this.updateForm.getRawValue().age),
+      age: this.updateForm.getRawValue().age,
       gender: this.updateForm.getRawValue().gender,
       email:  String(window.localStorage.getItem('pEmail')), 
       pasword: this.updateForm.getRawValue().pasword,

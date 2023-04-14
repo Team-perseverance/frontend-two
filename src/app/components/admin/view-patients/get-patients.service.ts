@@ -7,8 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class GetPatientsService {
 
   constructor(private http : HttpClient) { }
+  baseapiurl: string = 'https://20.120.40.217'
   getAllData(){
-    return this.http.get<Patient[]>("/api/PatientInfo/GetallPatientInfo")
+    return this.http.get<Patient[]>(this.baseapiurl+"/api/PatientInfo/GetallPatientInfo")
   }
 }
 

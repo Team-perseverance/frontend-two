@@ -10,16 +10,18 @@ export class AvailabilityService {
 
   constructor(private http : HttpClient) { }
 
+  baseapiurl: string = 'https://20.120.40.217'
+
   AddSchedule(sch : Schedule) : Observable<Schedule> {
-    return this.http.post<Schedule>('/api/PhysicianAvailability/AddSchedule', sch);
+    return this.http.post<Schedule>(this.baseapiurl + '/api/PhysicianAvailability/AddSchedule', sch);
   }
 
   UpdateDaySchedule(day: number, sch : Schedule[]) {
-    return this.http.put<Schedule[]>(`/api/PhysicianAvailability/UpdateAllSchedules?day=${day}`, sch);
+    return this.http.put<Schedule[]>(this.baseapiurl + `/api/PhysicianAvailability/UpdateAllSchedules?day=${day}`, sch);
   }
 
   GetDaySchedule(day: string) {
-    return this.http.get<Schedule[]>(`/api/PhysicianAvailability/GetSchedule?day=${day}`);
+    return this.http.get<Schedule[]>(this.baseapiurl + `/api/PhysicianAvailability/GetSchedule?day=${day}`);
   }
 }
 export interface Schedule {

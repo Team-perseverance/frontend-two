@@ -11,16 +11,17 @@ import { LoginService, PatientInfo } from '../../login.service';
 })
 export class PatientProfileComponent implements OnInit{
   constructor(private router: Router, private patService : LoginService){}
-  pat : PatientInfo[] = []
+  pat : any[] = []
   isLoading = false
   ngOnInit(): void {
     let email = window.localStorage.getItem("pEmail")
      this.patService.getPatientByEmail(email).subscribe((data) => {
         this.isLoading = true
-        data.forEach(p=>{
+        data.body?.forEach(p=>{
           this.pat.push(p)
           this.isLoading = false
         })
+        console.log(this.pat)
      });
   }
   goBack(){

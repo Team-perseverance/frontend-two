@@ -24,7 +24,7 @@ export class PatientDashboardComponent implements OnInit, AfterViewInit {
   }
   
   
-  patientInfo!: PatientInfo[]
+  patientInfo!: any
   P_name = window.localStorage.getItem("pName")
   p_id !: Guid | undefined
   isLoading = false
@@ -33,10 +33,10 @@ export class PatientDashboardComponent implements OnInit, AfterViewInit {
     // this.P_name = window.localStorage.getItem('pEmail')?.split('@')[0];
     let email = window.localStorage.getItem('pEmail');
     this.patService.getPatientByEmail(email).subscribe((data) => {
-      this.patientInfo = data
-      this.p_id = (data[0].patId)
+      this.patientInfo = data.body?.at(0)
+      this.p_id = data.body?.at(0)?.patId
       // console.log(this.p_id)
-      window.localStorage.setItem('patientId', String(data[0].patId));
+      window.localStorage.setItem('patientId', String(data.body?.at(0)?.patId));
     })
   }
 

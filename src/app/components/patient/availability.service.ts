@@ -13,20 +13,26 @@ export class AvailabilityService {
 
   constructor(private http : HttpClient) { }
 
+  BASE_API_URL = "https://20.120.40.217"
+  ADD_SCH_API_URL = "/api/PhysicianAvailability/AddSchedule"
+  UPDATE_SCH_API_URL = "/api/PhysicianAvailability/UpdateAllSchedules"
+  GET_DAY_SCH_API_URL = "/api/PhysicianAvailability/GetSchedule"
+  GET_ALL_DOC = "/api/Doctor/getAllDoctor"
+
   AddSchedule(sch : Schedule) : Observable<Schedule> {
-    return this.http.post<Schedule>('/api/PhysicianAvailability/AddSchedule', sch);
+    return this.http.post<Schedule>(this.BASE_API_URL + this.ADD_SCH_API_URL , sch);
   }
 
   UpdateDaySchedule(day: number, sch : Schedule[]) {
-    return this.http.put<Schedule[]>(`/api/PhysicianAvailability/UpdateAllSchedules?day=${day}`, sch);
+    return this.http.put<Schedule[]>(this.BASE_API_URL + this.UPDATE_SCH_API_URL + `?day=${day}`, sch);
   }
 
   GetDaySchedule(day: string | null) {
-    return this.http.get<Schedule[]>(`/api/PhysicianAvailability/GetSchedule?day=${day}`);
+    return this.http.get<Schedule[]>(this.BASE_API_URL + this.GET_DAY_SCH_API_URL + `?day=${day}`);
   }
 
   getAllDoctors(){
-    return this.http.get<Doctor[]>(`/api/Doctor/getAllDoctor`)
+    return this.http.get<Doctor[]>(this.BASE_API_URL + this.GET_ALL_DOC)
   }
 }
 

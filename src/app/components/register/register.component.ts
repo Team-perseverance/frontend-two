@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit{
   registerForm2 : FormGroup = this.fb.group({
     fullname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
     phone: ['',[Validators.required, Validators.pattern("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$")]],
-    age:['',[Validators.required,Validators.pattern("^[0-9]+$")]],
+    age:['',[Validators.required]],
     gender : ['', [Validators.required,Validators.pattern("^(male|female|other|Male|Female|Other)$")]], 
   })
 

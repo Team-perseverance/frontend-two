@@ -9,7 +9,7 @@
     <button (click)="navToPatientProfile()" matTooltip="View profile" mat-icon-button class="example-icon">
       <mat-icon title="Profile" style="color: white;">person</mat-icon>
     </button>
-    <button (click)="logout()" matTooltip="View profile" mat-icon-button class="example-icon">
+    <button (click)="logout()" matTooltip="Logout back to main page" mat-icon-button class="example-icon">
       <mat-icon title="Profile" style="color: white;">logout</mat-icon>
     </button>
   </mat-toolbar>
@@ -24,8 +24,8 @@
 </div>
 <br><br>
 <!-- <div *ngIf="patientInfo.length > 0"> -->
-  <div class="hisBtn" *ngFor="let p of patientInfo">
-        <button *ngIf="patientInfo.length > 0" mat-stroked-button (click)="NavToPatHistory(p.patId)">View your history</button>  
+  <div class="hisBtn" *ngIf="p_id">
+        <button *ngIf="p_id" mat-stroked-button (click)="NavToPatHistory(p_id)">View your history</button>  
   </div>
 <!-- </div> -->
 <br>

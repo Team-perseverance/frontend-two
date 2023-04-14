@@ -18,37 +18,37 @@ export class AppointmentServiceService {
 
   constructor(private http: HttpClient) { }
 
-  baseapiurl: string = 'http://localhost:5103';
+  baseapiurl: string = 'https://20.120.40.217';
 
   addAppointmentByPatient(addAppointment : AppointmentDoctorOne) : Observable<AppointmentDoctor>{
     console.log(addAppointment);
 
-    return this.http.post<AppointmentDoctor>('/api/Appointment/AddAppointmentByPatient', addAppointment);
+    return this.http.post<AppointmentDoctor>(this.baseapiurl+'/api/Appointment/AddAppointmentByPatient', addAppointment);
   }
 
   getAppointmentsByStatusOne(): Observable<AppointmentDoctor[]> {
-    return this.http.get<AppointmentDoctor[]>('/api/Appointment/GetAppointmentsByStatusOne')
+    return this.http.get<AppointmentDoctor[]>(this.baseapiurl+'/api/Appointment/GetAppointmentsByStatusOne')
   }
 
   getAppointmentsByStatus(status: number): Observable<AppointmentDoctor[]> {
-    return this.http.get<AppointmentDoctor[]>(`/api/Appointment/GetAppointmentsByStatus?status=${status}`)
+    return this.http.get<AppointmentDoctor[]>(this.baseapiurl+`/api/Appointment/GetAppointmentsByStatus?status=${status}`)
   }
 
   getAppointmentsByDoctorId(doctor_id: string | null | undefined): Observable<AppointmentDoctor[]> {
-    return this.http.get<AppointmentDoctor[]>(`/api/Appointment/GetAppointmentsByDoctorId?doctor_id=${doctor_id}`)
+    return this.http.get<AppointmentDoctor[]>(this.baseapiurl+`/api/Appointment/GetAppointmentsByDoctorId?doctor_id=${doctor_id}`)
   }
 
   getAppointmentsByNurseId(nurse_id: string | null | undefined): Observable<AppointmentDoctor[]> {
-    return this.http.get<AppointmentDoctor[]>(`/api/Appointment/GetAppointmentsByNurseId?nurse_id=${nurse_id}`)
+    return this.http.get<AppointmentDoctor[]>(this.baseapiurl+`/api/Appointment/GetAppointmentsByNurseId?nurse_id=${nurse_id}`)
   }
 
   updateStatusByDoctor(appointment_id: Guid | undefined, status: number | undefined): Observable<AppointmentDoctor> {
     // return this.http.put<AppointmentDoctor>(this.baseapiurl + '/api' + '/Appointment' + '/UpdateStatusByDoctor?appointment_id=' + appointment_id + '&status=' + status , {});
-    return this.http.put<AppointmentDoctor>(`/api/Appointment/UpdateStatusByDoctor?appointment_id=${appointment_id}&status=${status}`, {});
+    return this.http.put<AppointmentDoctor>(this.baseapiurl+`/api/Appointment/UpdateStatusByDoctor?appointment_id=${appointment_id}&status=${status}`, {});
   }
 
   updateNurseIdByNurse(appointment_id: Guid | undefined, nurse_id: string | undefined | null): Observable<AppointmentDoctor> {
-    return this.http.put<AppointmentDoctor>(`/api/Appointment/UpdateNurseIdByNurse?appointment_id=${appointment_id}&nurse_id=${nurse_id}`, {}).pipe(
+    return this.http.put<AppointmentDoctor>(this.baseapiurl+`/api/Appointment/UpdateNurseIdByNurse?appointment_id=${appointment_id}&nurse_id=${nurse_id}`, {}).pipe(
       catchError(error => of("400",error))    
     );
   }

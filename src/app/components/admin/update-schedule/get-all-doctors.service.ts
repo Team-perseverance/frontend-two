@@ -8,8 +8,8 @@ import { Doctor } from '../add-doctor/doctor';
 export class GetAllDoctorsService {
 
   constructor(private http : HttpClient) { }
-
+  baseapiurl: string = 'https://20.120.40.217'
   getAll(){
-    return this.http.get<Doctor[]>("/api/Doctor/getAllDoctor");
+    return this.http.get<Doctor[]>(this.baseapiurl+"/api/Doctor/getAllDoctor");
   }
 }

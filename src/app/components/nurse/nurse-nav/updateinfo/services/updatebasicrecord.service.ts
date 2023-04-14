@@ -28,14 +28,15 @@ export interface allergyex{
 export class UpdatebasicrecordService {
 
   constructor(private http:HttpClient) {}
+  baseapiurl: string = 'https://20.120.40.217'
   saveUser(data:details){
-    return this.http.post<details>('/api/PBRecord/AddPBRecords',data)
+    return this.http.post<details>(this.baseapiurl+'/api/PBRecord/AddPBRecords',data)
   }
   savealergy(data:allergyex){
-    return this.http.post<allergyex>('/api/PatientAllergy/AddAllergyRecords',data)
+    return this.http.post<allergyex>(this.baseapiurl+'/api/PatientAllergy/AddAllergyRecords',data)
   }
   getAllAllergy(){
-    return this.http.get('/api/Allergy/GetAllergies')
+    return this.http.get(this.baseapiurl+'/api/Allergy/GetAllergies')
   }
 
   // public updatePost(postData: details) {

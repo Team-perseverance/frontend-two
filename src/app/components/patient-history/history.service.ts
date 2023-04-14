@@ -11,6 +11,8 @@ export class HistoryService {
 
   constructor(private http : HttpClient) { }
 
+  baseapiurl: string = 'https://20.120.40.217'
+
   getHR(id : string | undefined):Observable<HealthR[]>{
     return this.http.get<HealthR[]>(`http://localhost:5103/apigateway/GetHR/${id}`)
     .pipe(catchError(err =>of("err", err)))
@@ -34,7 +36,7 @@ export class HistoryService {
   }
 
   getPatientBasicRecord(id : string | undefined, AID : string | undefined): Observable<BasicDetails[]>{
-    return this.http.get<BasicDetails[]>(`/api/History/getBasics/${id}/${AID}`)
+    return this.http.get<BasicDetails[]>(this.baseapiurl + `/api/History/getBasics/${id}/${AID}`)
     .pipe(catchError(err =>of("err", err)))
   }
 }

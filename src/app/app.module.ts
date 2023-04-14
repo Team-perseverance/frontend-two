@@ -87,7 +87,6 @@ import { AddedSnackBarComponent } from './components/doctor/added-snack-bar/adde
 import { UpdateProfileComponent } from './components/patient/patient-profile/update-profile/update-profile.component';
 import { PreviousAppointmentsComponent } from './components/patient/patient-dashboard/previous-appointments/previous-appointments.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

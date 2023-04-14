@@ -57,10 +57,8 @@ export class ViewPatientsComponent implements OnInit, AfterViewInit, OnDestroy, 
   isLoading = true 
   getData(){
     this.service.getAllData().subscribe((data) =>{
-      setTimeout(() => {
         this.patients = data
         this.isLoading = false
-      }, 2000);
     })
   }
 

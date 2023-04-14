@@ -17,7 +17,7 @@
           <div class="card-head">
             <mat-icon style="width: fit-content; margin: auto;">face</mat-icon><br>
             <mat-card-title style="text-align: center; font-size: 1rem;">{{p.fullname}}</mat-card-title>
-            <span style="text-align:center">{{p.gender}} ({{p.age}})</span>
+            <span style="text-align:center">{{p.gender}} ({{p.age | date : 'dd-MMM-YYYY'}})</span>
             <mat-card-subtitle style="text-align: center;">{{p.city}} ({{p.state}})</mat-card-subtitle>
           </div>
         </mat-card-header>

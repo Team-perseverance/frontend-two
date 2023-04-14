@@ -20,24 +20,27 @@ export class LoginService {
     return this.isLoggedIn
   }
 
-  getPatientByEmail(email : string | null):Observable<PatientInfo[]> {
-    return this.http.get<PatientInfo[]>(`/api/PatientInfo/GetPatientInfobyemail/${email}`)
+  BASE_API_URL = "https://20.120.40.217"
+  GET_PAT_BY_EMAIL_API_URL = "/api/PatientInfo/GetPatientInfobyemail"
+
+  getPatientByEmail(email : string | null) {
+    return this.http.get<PatientInfo[]>(this.BASE_API_URL + this.GET_PAT_BY_EMAIL_API_URL + `/${email}`, {observe: 'response'})
   }
   getDoctorByEmail(email:string){
-    return this.http.get<Doctor>(`/api/Doctor/GetByEmail?e=${email}`)
+    return this.http.get<Doctor>(this.BASE_API_URL +`/api/Doctor/GetByEmail?e=${email}`)
   }
 
   getNurseByEmail(email:string){
-    return this.http.get<Nurse>(`/api/Nurse/getByEmail?e=${email}`)
+    return this.http.get<Nurse>(this.BASE_API_URL +`/api/Nurse/getByEmail?e=${email}`)
   }
 
   updatePatient(PID:Guid, data:updatePatient){
-    return this.http.put(`/api/PatientInfo/UpdatePatientinfo?Pat_id=${PID}`, data)
+    return this.http.put(this.BASE_API_URL +`/api/PatientInfo/UpdatePatientinfo?Pat_id=${PID}`, data)
     .pipe(catchError(error=>of('err', error)))
   }
 
   updatePassword(data:upw){
-    return this.http.put('/api/PatientLogin/Update', data).pipe(
+    return this.http.put(this.BASE_API_URL +'/api/PatientLogin/Update', data).pipe(
       catchError(error=>of('err', error))
     )
   }

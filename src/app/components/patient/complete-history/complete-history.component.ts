@@ -16,6 +16,7 @@ export class CompleteHistoryComponent implements OnInit{
   doctor_imgs: string [] = []
   isLoading = false
   noData = false
+  mapped !: any[]
   ngOnInit(){
     let PID !:string
     this.route.params.subscribe(param=>{
@@ -25,6 +26,10 @@ export class CompleteHistoryComponent implements OnInit{
       this.isLoading = true
       console.log(res.status)
       this.completeHistory = res.body
+      this.mapped = Object.keys(this.completeHistory).map(key => ({type: key, value: this.completeHistory[key]}))
+      console.log(this.mapped);
+      
+      // this.mapped = this.mapped.sort((a,b) =>new Date(b.value.date).getTime() - new Date(a.value.date).getTime())
       if(this.completeHistory.length == 0) {
         this.noData = true
         this.isLoading = false

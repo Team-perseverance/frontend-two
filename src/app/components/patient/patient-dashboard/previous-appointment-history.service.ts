@@ -5,9 +5,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class PreviousAppointmentHistoryService {
-  // /api/Appointment/GetAppointmentsByPatientId
+  BASE_API_URL = "https://20.120.40.217"
+  GET_APP_API_URL = "/api/Appointment/GetAppointmentsByPatientId"
+  // 
   constructor(private http:HttpClient) { }
   getAppointment(PID:string){
-    return this.http.get(`/api/Appointment/GetAppointmentsByPatientId?patient_id=${PID}`)
+    return this.http.get(this.BASE_API_URL+this.GET_APP_API_URL+`?patient_id=${PID}`, {observe:'response'})
   }
 }

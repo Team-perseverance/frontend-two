@@ -31,7 +31,7 @@ export class FirstScheduleComponent {
   today :Date = new Date();
   getDate(){
     this.service.selectedDate = this.date
-    console.log(this.date.toString())
+    // console.log(this.date.toString())
   }
   openAddDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
     this.dialog.open(AddScheduleComponent, {
@@ -52,15 +52,17 @@ export class FirstScheduleComponent {
 
   getDoctorId() {
     this.schedule.AddSchedule(this.doctorForm.getRawValue().email).subscribe((data) => {
-      if(data != "404"){
-        window.localStorage.setItem("doctorId", JSON.stringify(data.id));
+      console.log(data.status)
+      if(data.status == 200){
+        window.localStorage.setItem("doctorId", JSON.stringify(data.body?.id));
         this.openAddDialog('20ms', '20ms');
         this.box = false;
       }
-      else{
-        // window.alert("Email does not exist ");
+      else if(data.status != 200){
         this.emailErrorMsg = true
+        window.alert(false)
       }
+      console.log(data.status)
     });
   }
 
