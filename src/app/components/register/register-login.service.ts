@@ -8,14 +8,14 @@ import { Observable, catchError, of, throwError } from 'rxjs';
 export class RegisterLoginService {
   constructor(private http: HttpClient) {}
   Rurl = "/api/PatientInfo/AddnewPatientinfo"
-  Lurl = "/api/PatientLogin/Add"
+  Lurl = "https://20.120.40.217/api/PatientLogin/Get?email=srinu143.h@gmail.com&password=Srinu@456"
   // UserExists = "http://localhost:5103/apigateway/LoginGet"
 
   getUser(email : string, password : string){
     let params = new HttpParams()
     params = params.append('email', email)
     params = params.append('password', password)
-    return this.http.get('/api/PatientLogin/Get', {params : params})
+    return this.http.get(this.Lurl, {params : params})
       .pipe(catchError(err => of('error',err)))
   }
   
