@@ -9,7 +9,7 @@ import { Doctor } from '../admin/add-doctor/doctor';
 export class DoctorService {
 
   constructor(private http : HttpClient) { }
-  baseapiurl: string = 'https://20.120.40.217'
+  baseapiurl: string = 'http://20.120.40.217'
   getDoctorByEmail(email : string) : Observable<Doctor> {
     let params = new HttpParams()
     params = params.append('e', email)

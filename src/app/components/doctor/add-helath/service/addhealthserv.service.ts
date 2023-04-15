@@ -29,7 +29,7 @@ export class AddhealthservService {
 
   constructor(private http:HttpClient) {}
 
-  baseapiurl: string = 'https://20.120.40.217'
+  baseapiurl: string = 'http://20.120.40.217'
   saveHealth(data:healthdata){
     return this.http.post<healthdata>(this.baseapiurl+'/api/PHRecord/AddPHRecords',data)
     .pipe(catchError(err => of('error', err)))

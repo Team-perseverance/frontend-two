@@ -28,7 +28,7 @@ export interface allergyex{
 export class UpdatebasicrecordService {
 
   constructor(private http:HttpClient) {}
-  baseapiurl: string = 'https://20.120.40.217'
+  baseapiurl: string = 'http://20.120.40.217'
   saveUser(data:details){
     return this.http.post<details>(this.baseapiurl+'/api/PBRecord/AddPBRecords',data)
   }

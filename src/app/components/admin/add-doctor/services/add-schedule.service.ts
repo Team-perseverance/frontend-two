@@ -10,7 +10,7 @@ export class AddScheduleService {
   Docemail !: string | undefined
 
   constructor(private http: HttpClient) { }
-  baseapiurl: string = 'https://20.120.40.217'
+  baseapiurl: string = 'http://20.120.40.217'
   AddSchedule(email : string) {
     return this.http.get<any>(this.baseapiurl+`/api/Doctor/GetByEmail?e=${email}`, {observe:'response'});
   }

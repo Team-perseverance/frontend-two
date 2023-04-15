@@ -11,7 +11,7 @@ export class HistoryService {
 
   constructor(private http : HttpClient) { }
 
-  baseapiurl: string = 'https://20.120.40.217'
+  baseapiurl: string = 'http://20.120.40.217'
 
   getHR(id : string | undefined):Observable<HealthR[]>{
     return this.http.get<HealthR[]>(`http://localhost:5103/apigateway/GetHR/${id}`)
