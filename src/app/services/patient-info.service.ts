@@ -13,7 +13,7 @@ import { PatientInfo } from '../components/login.service';
 export class PatientInfoService {
   constructor(private http: HttpClient) {}
 
-  baseapiurl: string = 'http://20.120.40.217';
+  baseapiurl: string = 'https://20.120.40.217';
 
   getAllPatientInfos() {
     return this.http.get<PatientInfo[]>(this.baseapiurl+`/api/PatientInfo/GetallPatientInfo`);

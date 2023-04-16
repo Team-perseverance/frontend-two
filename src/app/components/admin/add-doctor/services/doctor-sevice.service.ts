@@ -9,7 +9,7 @@ import { Observable, catchError, of } from 'rxjs';
 export class DoctorSeviceService {
 
   constructor(private http : HttpClient) { }
-  baseapiurl: string = 'http://20.120.40.217'
+  baseapiurl: string = 'https://20.120.40.217'
   addDoctor(doctor : Doctor){
     return this.http.post<any>(this.baseapiurl+"/api/Doctor/addDoctor", doctor)
     .pipe(catchError(err => of('error',err)))

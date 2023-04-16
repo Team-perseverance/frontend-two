@@ -13,7 +13,7 @@ export class AvailabilityService {
 
   constructor(private http : HttpClient) { }
 
-  BASE_API_URL = "http://20.120.40.217"
+  BASE_API_URL = "https://20.120.40.217"
   ADD_SCH_API_URL = "/api/PhysicianAvailability/AddSchedule"
   UPDATE_SCH_API_URL = "/api/PhysicianAvailability/UpdateAllSchedules"
   GET_DAY_SCH_API_URL = "/api/PhysicianAvailability/GetSchedule"

@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class CompleteInfoService {
 
   constructor(private http : HttpClient) { }
-  BASE_API_URL = "http://20.120.40.217"
+  BASE_API_URL = "https://20.120.40.217"
   API_URL : string = "/api/History/GetCompleteHistory/"
   API_URL_DOC : string = "/api/Doctor/byId"
   // ?id=

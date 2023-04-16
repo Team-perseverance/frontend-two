@@ -10,7 +10,7 @@ export class AvailabilityService {
 
   constructor(private http : HttpClient) { }
 
-  baseapiurl: string = 'http://20.120.40.217'
+  baseapiurl: string = 'https://20.120.40.217'
 
   AddSchedule(sch : Schedule) : Observable<Schedule> {
     return this.http.post<Schedule>(this.baseapiurl + '/api/PhysicianAvailability/AddSchedule', sch);

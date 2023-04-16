@@ -20,7 +20,7 @@ export class LoginService {
     return this.isLoggedIn
   }
 
-  BASE_API_URL = "http://20.120.40.217"
+  BASE_API_URL = "https://20.120.40.217"
   GET_PAT_BY_EMAIL_API_URL = "/api/PatientInfo/GetPatientInfobyemail"
 
   getPatientByEmail(email : string | null) {

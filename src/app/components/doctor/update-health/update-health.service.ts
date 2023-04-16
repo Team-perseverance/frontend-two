@@ -9,7 +9,7 @@ export class UpdateHealthService {
 
   constructor(private http : HttpClient) { }
 
-  baseapiurl: string = 'http://20.120.40.217'
+  baseapiurl: string = 'https://20.120.40.217'
   updateMedication(aid : string, med : Medication) {
     return this.http.put(this.baseapiurl+`/api/Medication/updatemedication/${aid}`, med);
   }

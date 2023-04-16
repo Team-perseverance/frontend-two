@@ -18,7 +18,7 @@ export class AppointmentServiceService {
 
   constructor(private http: HttpClient) { }
 
-  baseapiurl: string = 'http://20.120.40.217';
+  baseapiurl: string = 'https://20.120.40.217';
 
   addAppointmentByPatient(addAppointment : AppointmentDoctorOne) : Observable<AppointmentDoctor>{
     console.log(addAppointment);

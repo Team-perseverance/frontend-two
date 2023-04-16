@@ -7,7 +7,7 @@ import { Observable, catchError, of, throwError } from 'rxjs';
 })
 export class RegisterLoginService {
   constructor(private http: HttpClient) {}
-  baseUrl = "http://20.120.40.217"
+  baseUrl = "https://20.120.40.217"
   Rurl = "/api/PatientInfo/AddnewPatientinfo"
   Lurl = "/api/PatientLogin/Get"
   AddLogin = "/api/PatientLogin/Add"
