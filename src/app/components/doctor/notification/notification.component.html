@@ -62,7 +62,7 @@
             {{patient.patient.fullname}}
           </mat-panel-title>
           <mat-panel-description>
-            Age : {{patient.patient.age}}
+            DOB : {{patient.patient.age | date : 'dd-MMM-YYYY'}}
           </mat-panel-description>
           <mat-panel-description>
             <mat-icon *ngIf="patient.appointment.status == 4" style="color:tomato">thumb_up</mat-icon>
