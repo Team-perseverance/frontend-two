@@ -4,12 +4,14 @@
   <mat-toolbar color="primary">
     <span style="cursor: pointer;" matTooltip="home">Hospital Management System</span>
     <span class="example-spacer"></span>
-      <span *ngIf="(auth.isAuthenticated$ | async) === true">
+      <!-- <span *ngIf="(auth.isAuthenticated$ | async) === true"> -->
+      <span *ngIf="flag">
       <button (click)="logout()" matTooltip="logout" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>logout</mat-icon>
       </button>
     </span>
-    <span *ngIf="(auth.isAuthenticated$ | async) === false">
+    <!-- <span *ngIf="(auth.isAuthenticated$ | async) === false"> -->
+    <span *ngIf="!flag">
       <button (click)="loginWithRedirect()" matTooltip="Management login" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
         <mat-icon>manage_accounts</mat-icon>
       </button>

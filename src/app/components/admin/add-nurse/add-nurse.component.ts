@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Valida
 import {ErrorStateMatcher} from '@angular/material/core';
 import { Nurse } from './nurse';
 import { Router } from '@angular/router';
-import { NurseService } from './nurse.service';
+import { NewNurse, NurseService } from './nurse.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddedSnackBarComponent } from '../../doctor/added-snack-bar/added-snack-bar.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -28,7 +28,7 @@ export class AddNurseComponent implements OnInit{
     this.nurseForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
       email : ['', [Validators.required, Validators.email]],
-      phone_no: ['']
+      phoneNo: ['',[Validators.pattern("^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$")]]
     })
   }
 
@@ -39,12 +39,18 @@ export class AddNurseComponent implements OnInit{
   }
 
   isLoading = false
-  nurse !: Nurse
+  nurse !: NewNurse
+  Newnurse !: NewNurse
   nurseForm!: FormGroup;
   createNurse(){
     this.isLoading = true
     console.log(this.nurseForm.getRawValue())
-    this.service.addNurse(this.nurseForm.getRawValue()).subscribe((data) => {
+    this.Newnurse = {
+      name : this.nurseForm.getRawValue().name,
+      email : this.nurseForm.getRawValue().email,
+      phoneNo: this.nurseForm.getRawValue().phoneNo,
+    }
+    this.service.addNurse(this.Newnurse).subscribe((data) => {
       console.log(data.status)
       if(data.status == 400 || data.status == 502){
         window.alert("something went wrong, try after later")

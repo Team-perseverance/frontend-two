@@ -25,9 +25,13 @@ import { CompleteHistoryComponent } from './components/patient/complete-history/
 import { HistoryPatientViewComponent } from './components/patient/history-patient-view/history-patient-view.component';
 import { UpdateHealthComponent } from './components/doctor/update-health/update-health.component';
 import { UpdateProfileComponent } from './components/patient/patient-profile/update-profile/update-profile.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 
 const routes: Routes = [
+  {
+    path: 'notauthorized', component: NotFoundComponent
+  },
   {
     path:'register', component:RegisterComponent
   },
@@ -41,76 +45,76 @@ const routes: Routes = [
   //   path: 'add-doctor', component:AddDoctorComponent
   // }
   {
-    path: 'admin-dashboard', component:DashboardComponent
+    path: 'admin-dashboard', component:DashboardComponent, canActivate: [LoginGuard],
   },
   {
-    path: 'nurse-dashboard/:name/:nurId', component: AppointmentsComponent
+    path: 'nurse-dashboard/:name/:nurId', component: AppointmentsComponent, canActivate: [LoginGuard]
   },
   // {
   //   path: 'view-patient-history', component: PatientHistoryComponent
   // },
   {
-    path: 'update-patient-info/:id/:AID', component: UpdateinfoComponent
+    path: 'update-patient-info/:id/:AID', component: UpdateinfoComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'patient-dashboard', component: PatientDashboardComponent
+    path: 'patient-dashboard', component: PatientDashboardComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'view-patient-basic-info', component: ViewPatientsComponent,
+    path: 'view-patient-basic-info', component: ViewPatientsComponent,canActivate: [LoginGuard]
   },
   {
-    path: 'add-doctor-details', component: AddDoctorComponent,
+    path: 'add-doctor-details', component: AddDoctorComponent,canActivate: [LoginGuard]
   },
   {
-    path: 'add-nurse-details', component: AddNurseComponent
+    path: 'add-nurse-details', component: AddNurseComponent,canActivate: [LoginGuard]
   },
   {
-    path: 'doctor-dashboard/:name/:docId', component: NotificationComponent,
+    path: 'doctor-dashboard/:name/:docId', component: NotificationComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'appointment-requests', component:AppointmentRequestsComponent,
+    path: 'appointment-requests', component:AppointmentRequestsComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'add-patient-health', component: AddHealthComponent,
+    path: 'add-patient-health', component: AddHealthComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'add-patient-health/:name/:PID/:AID', component: AddHealthComponent,
+    path: 'add-patient-health/:name/:PID/:AID', component: AddHealthComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'view-complete-history-doc', component:PatientCompleteHistoryDocComponent
+    path: 'view-complete-history-doc', component:PatientCompleteHistoryDocComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'view-your-profile', component:PatientProfileComponent,
+    path: 'view-your-profile', component:PatientProfileComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'book-appointment', component:ShowDoctorsComponent,
+    path: 'book-appointment', component:ShowDoctorsComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'show-doctors', component:ShowDoctorsComponent,
+    path: 'show-doctors', component:ShowDoctorsComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'show-doctors/:day', component:ShowDoctorsComponent,
+    path: 'show-doctors/:day', component:ShowDoctorsComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'patient-history-doctor-view/:id/:name', component:DoctorHistoryViewComponent,
+    path: 'patient-history-doctor-view/:id/:name', component:DoctorHistoryViewComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'patient-history-nurse-view/:id',component: PatientHistoryComponent
+    path: 'patient-history-nurse-view/:id',component: PatientHistoryComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'nurse/pick-appointments', component : PickAppointmentsComponent
+    path: 'nurse/pick-appointments', component : PickAppointmentsComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'view/complete/history/:id', component : CompleteHistoryComponent
+    path: 'view/complete/history/:id', component : CompleteHistoryComponent,canActivate: [LoginGuard]
   },
   {
-    path: 'patient/view/complete/history/:id', component:HistoryPatientViewComponent
+    path: 'patient/view/complete/history/:id', component:HistoryPatientViewComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'update-health/:pid/:aid', component: UpdateHealthComponent
+    path: 'update-health/:pid/:aid', component: UpdateHealthComponent, canActivate: [LoginGuard]
   },
   {
-    path: 'update-profile', component: UpdateProfileComponent
+    path: 'update-profile', component: UpdateProfileComponent, canActivate: [LoginGuard]
   }
 ];
 

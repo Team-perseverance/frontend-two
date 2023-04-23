@@ -15,7 +15,7 @@
   <div class="container">
     <div class="info-card-grp">
       <div *ngFor="let info of outter.moreInfo">
-        <mat-card matTooltip="Doctor information" class="info-card">
+        <mat-card matTooltip="Doctor information and suggestion" class="info-card">
           <div class="info-card-content">
             <div class="doctor-section">
               <div class="doc-img">
@@ -24,6 +24,7 @@
               <div>
                 <span class="doctor-name">{{doctor_names[i]}}</span>
                 <span class="inner-card-title">{{info.date_Time | date : "dd-MMM-YYYY"}}</span>
+                <span class="inner-card-sugg">{{info.conclusion}}</span>
               </div>
             </div>
           </div>

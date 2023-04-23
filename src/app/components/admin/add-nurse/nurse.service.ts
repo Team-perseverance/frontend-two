@@ -9,14 +9,14 @@ export class NurseService {
 
   constructor(private http : HttpClient) { }
   baseapiurl: string = 'https://20.120.40.217'
-  addNurse(nurse : Nurse){
+  addNurse(nurse : NewNurse){
     return this.http.post(this.baseapiurl + "/api/Nurse/AddNurse", nurse)
     .pipe(catchError(err => of('error',err)))
   }
 }
 
-export interface Nurse{
+export interface NewNurse{
   name : string | undefined
   email : string  | undefined
-  phone_no : number | undefined 
+  phoneNo : number | undefined 
 }

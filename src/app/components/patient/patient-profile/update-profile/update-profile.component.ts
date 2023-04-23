@@ -41,7 +41,7 @@ export class UpdateProfileComponent implements OnInit {
       email: window.localStorage.getItem('pEmail'),
       fullname: [''],
       gender : [''],
-      pasword: [''],
+      pasword: ['',[Validators.required,Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$")]],
       age: [''],
       phone: [''],
       adressLine: [''],

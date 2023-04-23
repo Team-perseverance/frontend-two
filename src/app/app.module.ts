@@ -86,6 +86,7 @@ import { UpdateHealthComponent } from './components/doctor/update-health/update-
 import { AddedSnackBarComponent } from './components/doctor/added-snack-bar/added-snack-bar.component';
 import { UpdateProfileComponent } from './components/patient/patient-profile/update-profile/update-profile.component';
 import { PreviousAppointmentsComponent } from './components/patient/patient-dashboard/previous-appointments/previous-appointments.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -131,6 +132,7 @@ import { PreviousAppointmentsComponent } from './components/patient/patient-dash
     AddedSnackBarComponent,
     UpdateProfileComponent,
     PreviousAppointmentsComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

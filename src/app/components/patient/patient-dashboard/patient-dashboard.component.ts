@@ -56,7 +56,8 @@ export class PatientDashboardComponent implements OnInit, AfterViewInit {
     this.router.navigate(['/view-your-profile']);
   }
   logout() {
-    this.router.navigate(['']);
+    this.router.navigate(['']) 
+    // this.patService.isLoggedIn = false
   }
 
   openDialog(

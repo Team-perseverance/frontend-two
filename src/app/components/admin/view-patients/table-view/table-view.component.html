@@ -67,9 +67,9 @@
     <mat-spinner color="accent" *ngIf="isLoaded"></mat-spinner>
   </div>
   <div class="filter-input">
-    <mat-form-field appearance="outline">
-      <mat-label>Filter</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. cibi" #input>
+    <mat-form-field appearance="outline" color="accent">
+      <mat-label>Filter by name, email, gender, city and state</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="" #input>
     </mat-form-field>
   </div>
   <div class="example-table-container">

@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit{
     this.router.navigate(['/register'])
   }
   NavigateToMain(){
-    this.router.navigate([''])
+    this.router.navigate(['']) 
   }
   isLoading = false
   hide = true
@@ -97,6 +97,7 @@ export class LoginComponent implements OnInit{
           })
           // console.log(data)
           this.isLoading = false
+          this.loginService.isLoggedIn = true
         }
       })
       

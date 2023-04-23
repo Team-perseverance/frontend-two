@@ -182,7 +182,7 @@ export class RegisterComponent implements OnInit{
     this.router.navigate(['/login'])
   }
   NavigateToMain(){
-    this.router.navigate([''])
+    this.router.navigate(['']) 
   }
 }
 export interface City{

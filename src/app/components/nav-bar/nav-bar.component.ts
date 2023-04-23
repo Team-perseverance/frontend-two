@@ -17,6 +17,9 @@ export class NavBarComponent {
   isLoading = false
   flag = false
   ngOnInit(){
+    
+    console.log(this.auth.isAuthenticated$)
+    
     this.loginForm = this.fb.group({
       email:[''],
       password:['']
@@ -28,6 +31,8 @@ export class NavBarComponent {
           // this.router.navigate(['/dashboard']);
           if(this.loginService.login(profile?.email?.split('@')[1])){
             this.router.navigate(['/admin-dashboard']);
+            this.flag = true
+            
           }
           break;
         case 'doctor.com':
@@ -38,6 +43,7 @@ export class NavBarComponent {
               let jjson = JSON.parse(json)
               window.localStorage.setItem("Doctor", jjson.id)
               this.router.navigate(['/doctor-dashboard', jjson.name, jjson.id]);
+              this.flag = true
             })
           }
           break;
@@ -50,6 +56,7 @@ export class NavBarComponent {
               // console.log(jjson);
               window.localStorage.setItem("Nurse", jjson[0].id)
               this.router.navigate(['/nurse-dashboard', jjson[0].name, jjson[0].id])
+              this.flag = true
             })
           }
           break;
@@ -69,6 +76,7 @@ export class NavBarComponent {
         returnTo: this.doc.location.origin,
       },
     });
+    this.flag = false
   }
   NavigateToLogin(){
     this.router.navigate(['/login'])
