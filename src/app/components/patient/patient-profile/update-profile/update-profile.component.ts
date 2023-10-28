@@ -84,14 +84,14 @@ export class UpdateProfileComponent implements OnInit {
       password: this.updateForm.getRawValue().pasword, 
     }
     console.log(this.updateForm.getRawValue().pasword.toString())
-    
-    if(this.updateForm.getRawValue().pasword.toString() !== "" || this.updateForm.getRawValue().pasword.toString() !== " " || this.updateForm.getRawValue().pasword.toString() !== null){
-      if(data1.password.toString() !== "" || data1.password.toString() !== null || this.updateForm.getRawValue().pasword.toString() !== '<empty string>'){
-        this.patService.updatePassword(data1).subscribe(res=>{
-          console.log(res)
-        })
-      }
-    }
+    this.patService.updatePassword(data1).subscribe(res=>{
+      console.log(res)
+    })
+    // if(this.updateForm.getRawValue().pasword.toString() !== "" || this.updateForm.getRawValue().pasword.toString() !== " " || this.updateForm.getRawValue().pasword.toString() !== null){
+    //   if(data1.password.toString() !== "" || data1.password.toString() !== null || this.updateForm.getRawValue().pasword.toString() !== '<empty string>'){
+        
+    //   }
+    // }
   }
 }
 

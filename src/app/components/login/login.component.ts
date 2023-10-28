@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit{
           this.loginService.getPatientByEmail(this.loginForm.getRawValue().email).subscribe(data=>{
             window.localStorage.setItem("patientId", String(data.body?.at(0)?.patId))
             window.localStorage.setItem("pName", String(data.body?.at(0)?.fullname))
-            if(data.status == 200 || data.status === 201){
+            if(data.status == 200){
               this.router.navigate(['/patient-dashboard'])  
             }
           })

@@ -22,7 +22,6 @@ export class AppointmentServiceService {
 
   addAppointmentByPatient(addAppointment : AppointmentDoctorOne) : Observable<AppointmentDoctor>{
     console.log(addAppointment);
-
     return this.http.post<AppointmentDoctor>(this.baseapiurl+'/api/Appointment/AddAppointmentByPatient', addAppointment);
   }
 
